@@ -44,7 +44,7 @@ public class WorldTimer extends JavaPlugin {
 		cs.addDefault("interval", 60);
 		cs.addDefault("default_world", "world");
 		
-		TimedWorld tw = new TimedWorld(cs.getInt("limit"), cs.getInt("interval"), cs.getString("default_world"), s);
+		TimedWorld tw = new TimedWorld(cs.getInt("limit"), cs.getInt("interval"), cs.getString("default_world"), s, this);
 		
 		wm.addWorld(tw);
 		
