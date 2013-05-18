@@ -1,0 +1,11 @@
+main: numenorean95.worldtimer.WorldTimer
+author: Numenorean95
+name: WorldTimer
+version: 0.0.1
+
+commands:
+    init:
+        description: Initializes world in conf
+        usage: |
+            /<command> <world>
+        permission: wt.init
