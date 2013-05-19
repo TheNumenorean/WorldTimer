@@ -100,6 +100,12 @@ public class TimedWorld {
 			end_remaining.remove(player);
 		}
 	}
+	
+	public long getRemainingCooldown(String player){
+		if(end_cooldown.containsKey(player))
+			return (end_cooldown.get(player) - System.currentTimeMillis()) / 1000;
+		return 0;
+	}
 
 	public String getDefaultWorld() {
 		return default_world;
