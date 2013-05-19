@@ -4,7 +4,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 
 public class TimedWorld {
 	
@@ -121,6 +122,18 @@ public class TimedWorld {
 	
 	public String getWorld(){
 		return world;
+	}
+	
+	public void save(ConfigurationSection root){
+		
+		for(String s : root.getKeys(false))
+			root.set(s, null);
+		for(String s : remaining_time.keySet())
+			root.set(s + ".remaining", remaining_time.get(s));
+		for(String s : end_remaining.keySet())
+			root.set(s + ".remaining", (end_remaining.get(s) - System.currentTimeMillis()) / 1000);
+		for(String s : end_cooldown.keySet())
+			root.set(s + ".cooldown", (end_cooldown.get(s) - System.currentTimeMillis()) / 1000);
 	}
 
 }

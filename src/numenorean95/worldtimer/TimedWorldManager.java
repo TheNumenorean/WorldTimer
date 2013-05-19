@@ -1,6 +1,7 @@
 package numenorean95.worldtimer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.World;
 
@@ -23,6 +24,10 @@ public class TimedWorldManager {
 			if(tw.getWorld().equals(world.getName()))
 				return tw;
 		return null;
+	}
+	
+	public List<TimedWorld> getWorlds(){
+		return worlds;
 	}
 
 }

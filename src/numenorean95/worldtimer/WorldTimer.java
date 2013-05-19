@@ -59,6 +59,16 @@ public class WorldTimer extends JavaPlugin {
 	
 	@Override
 	public void onDisable(){
+
+		for(TimedWorld s : wm.getWorlds()){
+			ConfigurationSection players  = conf.getConfigurationSection("worlds." + s.getWorld() + ".players");
+			if(players == null)
+				players = conf.createSection("worlds." + s.getWorld() + ".players");
+			
+			log.info("Saving world " + s.getWorld());
+			s.save(players);
+			
+		}
 		log.info("Unloaded.");
 	}
 	
